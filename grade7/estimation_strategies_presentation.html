@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimation Strategies - Grade 7 Mathematics</title>
+    <!-- MathJax Configuration and Script -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', \\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --secondary: #0f766e;
+            --bg-light: #f8fafc;
+            --card-border: #e2e8f0;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0f172a;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 900px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 560px;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px;
+            flex: 1;
+            box-sizing: border-box;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { color: var(--primary); font-size: 28px; text-align: center; margin-top: 10px; margin-bottom: 8px; }
+        h2 { color: var(--primary); font-size: 24px; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+        h3 { color: var(--secondary); font-size: 20px; margin-top: 10px; margin-bottom: 12px; }
+        h4 { color: #334155; font-size: 17px; margin-top: 12px; margin-bottom: 6px; }
+
+        p, li { line-height: 1.6; font-size: 16px; color: #334155; }
+        
+        .box-info {
+            background-color: #f0f9ff;
+            border-left: 4px solid var(--primary-light);
+            padding: 16px;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+
+        .box-success {
+            background-color: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+
+        .box-warning {
+            background-color: #fef2f2;
+            border-left: 4px solid #dc2626;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        th { background-color: var(--primary-light); color: white; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid var(--card-border); }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #f1f5f9;
+            border-top: 1px solid var(--card-border);
+        }
+
+        button {
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover { background-color: var(--primary); }
+        button:disabled { background-color: #94a3b8; cursor: not-allowed; }
+
+        .slide-counter {
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .math {
+            font-family: "Cambria Math", "Latin Modern Math", "STIX Two Math", Georgia, "Times New Roman", serif;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+        <h1>Direct Instruction: Estimation Strategies</h1>
+        <p style="text-align: center; color: #64748b; font-size: 18px; margin-top: 0;">Grade 7 Mathematics — Real Numbers</p>
+        <br>
+        <div class="box-info" style="margin-top: 20px;">
+            <p style="font-size: 18px; margin-top: 0; font-weight: bold; color: var(--primary);">Lesson Objectives:</p>
+            <p style="margin-bottom: 0;">By the end of this presentation, you will be able to:</p>
+            <ul>
+                <li>Apply <b>Rounding & Front-End Estimation</b> for addition and subtraction.</li>
+                <li>Use <b>Compatible Numbers</b> for multiplication and division.</li>
+                <li>Apply <b>Clustering</b> when multiple quantities cluster near a common value.</li>
+                <li>Explain why an estimate is reasonable in real-world contexts.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 2: Strategy A - Rounding -->
+    <div class="slide">
+        <h2>Strategy A: Rounding & Front-End Estimation</h2>
+        <p>Front-end estimation focuses mainly on the leading digits. It is ideal when working with large numbers or when a quick approximate value is needed.</p>
+        
+        <h4>1. Addition Example: Estimate <span class="math">487 + 296</span></h4>
+        <p>Round each number to the nearest hundred:</p>
+        <p style="text-align:center;"><span class="math">487 ≈ 500, &nbsp;&nbsp;&nbsp;&nbsp; 296 ≈ 300</span></p>
+        <p><b>Estimate:</b></p>
+        <p style="text-align:center;"><span class="math">487 + 296 ≈ 500 + 300 = 800</span></p>
+        <p><span style="color:#16a34a; font-weight:600;">Check:</span> The exact answer is <span class="math">783</span>, so <span class="math">800</span> is reasonable.</p>
+        
+        <h4>2. Subtraction Example: Estimate <span class="math">1,984 − 763</span></h4>
+        <p>Round to the nearest hundred:</p>
+        <p style="text-align:center;"><span class="math">1,984 ≈ 2,000, &nbsp;&nbsp;&nbsp;&nbsp; 763 ≈ 800</span></p>
+        <p><b>Estimate:</b></p>
+        <p style="text-align:center;"><span class="math">1,984 − 763 ≈ 2,000 − 800 = 1,200</span></p>
+        
+        <div class="box-warning">
+            <b>Caution in Subtraction:</b> Rounding both numbers can sometimes produce a poor estimate if rounded by different relative amounts. Always check if the estimate is close to the original difference.
+        </div>
+    </div>
+
+    <!-- Slide 3: Strategy A - Front-End Comparison -->
+    <div class="slide">
+        <h2>Strategy A: Front-End vs. Rounded Precision</h2>
+        <p><b>Problem:</b> Estimate <span class="math">4,682 + 3,157</span></p>
+        
+        <div class="grid-2">
+            <div class="box-info">
+                <h4 style="margin-top:0; color:var(--primary);">Method 1: Quick Front-End</h4>
+                <p>Use leading digits (thousands place):</p>
+                <p><span class="math">4,682 ≈ 4,000</span></p>
+                <p><span class="math">3,157 ≈ 3,000</span></p>
+                <p><b>Estimate:</b> <span class="math">4,000 + 3,000 = 7,000</span></p>
+            </div>
+            
+            <div class="box-success">
+                <h4 style="margin-top:0; color:#15803d;">Method 2: Rounded to Hundreds</h4>
+                <p>Round to the nearest hundred:</p>
+                <p><span class="math">4,682 ≈ 4,700</span></p>
+                <p><span class="math">3,157 ≈ 3,200</span></p>
+                <p><b>Estimate:</b> <span class="math">4,700 + 3,200 = 7,900</span></p>
+            </div>
+        </div>
+        <br>
+        <div class="box-info">
+            <b>Key Takeaway:</b> Both estimates are reasonable, but <span class="math">7,900</span> is more precise.
+        </div>
+    </div>
+
+    <!-- Slide 4: Strategy B - Compatible Numbers -->
+    <div class="slide">
+        <h2>Strategy B: Compatible Numbers</h2>
+        <p>Compatible numbers are numbers that are close to the original numbers and easy to calculate mentally. This strategy is especially useful for multiplication and division.</p>
+        
+        <h4>1. Multiplication Example: Estimate <span class="math">49 × 21</span></h4>
+        <p>Use compatible numbers:</p>
+        <p style="text-align:center;"><span class="math">49 ≈ 50, &nbsp;&nbsp;&nbsp;&nbsp; 21 ≈ 20</span></p>
+        <p><b>Estimate:</b></p>
+        <p style="text-align:center;"><span class="math">49 × 21 ≈ 50 × 20 = 1,000</span></p>
+        <p><span style="color:#16a34a; font-weight:600;">Check:</span> The exact answer is <span class="math">1,029</span>, so <span class="math">1,000</span> is reasonable.</p>
+        
+        <h4>2. Division Example: Estimate <span class="math">198 ÷ 6</span></h4>
+        <p>• <b>Option 1:</b> <span class="math">198 ≈ 200 ⇒ 200 ÷ 6 ≈ 33</span></p>
+        <p>• <b>Option 2 (Direct Divisibility):</b> Use <span class="math">198</span> directly since it is divisible by <span class="math">6</span>:</p>
+        <p style="text-align:center;"><span class="math">198 ÷ 6 = 33</span></p>
+    </div>
+
+    <!-- Slide 5: Strategy B - Decimal Division -->
+    <div class="slide">
+        <h2>Strategy B: Decimal Division</h2>
+        <p><b>Example:</b> Estimate <span class="math">4.9 ÷ 0.98</span></p>
+        
+        <div class="box-info">
+            <p><b>Step 1: Choose compatible whole numbers</b></p>
+            <p style="text-align:center;"><span class="math">4.9 ≈ 5, &nbsp;&nbsp;&nbsp;&nbsp; 0.98 ≈ 1</span></p>
+            <p><b>Step 2: Calculate mentally</b></p>
+            <p style="text-align:center;"><span class="math">4.9 ÷ 0.98 ≈ 5 ÷ 1 = 5</span></p>
+        </div>
+        
+        <div class="box-success">
+            <b>Reasoning:</b> The estimate of <span class="math">5</span> is reasonable because <span class="math">0.98</span> is very close to <span class="math">1</span>, and dividing any number by approximately <span class="math">1</span> leaves its value essentially unchanged.
+        </div>
+    </div>
+
+    <!-- Slide 6: Strategy C - Clustering -->
+    <div class="slide">
+        <h2>Strategy C: Clustering</h2>
+        <p>Clustering is useful when several numbers are close to the same central value. Replace the numbers with a common <b>cluster value</b>, then multiply or add.</p>
+        
+        <h4>Example 1: Cricket Team Scores</h4>
+        <p>A cricket team scores <span class="math">48</span>, <span class="math">52</span>, <span class="math">49</span>, and <span class="math">51</span> runs in four practice innings. Estimate the total runs.</p>
+        <p>The scores cluster around <span class="math">50</span>:</p>
+        <p style="text-align:center;"><span class="math">48 ≈ 50, &nbsp;&nbsp; 52 ≈ 50, &nbsp;&nbsp; 49 ≈ 50, &nbsp;&nbsp; 51 ≈ 50</span></p>
+        <p><b>Estimate:</b></p>
+        <p style="text-align:center;"><span class="math">48 + 52 + 49 + 51 ≈ 4 × 50 = 200 runs</span></p>
+
+        <h4>Example 2: Distance Travelled</h4>
+        <p>Four students walk <span class="math">4.8 km</span>, <span class="math">5.1 km</span>, <span class="math">4.9 km</span>, and <span class="math">5.2 km</span>.</p>
+        <p><b>Estimate:</b></p>
+        <p style="text-align:center;"><span class="math">4.8 + 5.1 + 4.9 + 5.2 ≈ 4 × 5 = 20 km</span></p>
+    </div>
+
+    <!-- Slide 7: Strategy C - Contextual Example -->
+    <div class="slide">
+        <h2>Strategy C: Cooking Quantity Example</h2>
+        <p><b>Problem:</b> A cook measures <span class="math">0.48 kg</span>, <span class="math">0.52 kg</span>, and <span class="math">0.51 kg</span> of ingredients. Estimate the total mass.</p>
+        
+        <div class="box-info">
+            <p><b>Step 1: Identify the cluster value</b></p>
+            <p>The quantities cluster around <span class="math">0.5 kg</span>:</p>
+            <p style="text-align:center;"><span class="math">0.48 ≈ 0.5, &nbsp;&nbsp; 0.52 ≈ 0.5, &nbsp;&nbsp; 0.51 ≈ 0.5</span></p>
+            
+            <p><b>Step 2: Calculate</b></p>
+            <p style="text-align:center;"><span class="math">0.48 + 0.52 + 0.51 ≈ 3 × 0.5 = 1.5 kg</span></p>
+        </div>
+        
+        <div class="box-success">
+            <b>Why it works:</b> Values slightly above <span class="math">0.5 kg</span> (<span class="math">0.52 kg</span>) offset values slightly below <span class="math">0.5 kg</span> (<span class="math">0.48 kg</span>).
+        </div>
+    </div>
+
+    <!-- Slide 8: Choosing a Strategy -->
+    <div class="slide">
+        <h2>Choosing a Strategy & Self-Check</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Situation</th>
+                    <th>Suitable Strategy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Large numbers in addition or subtraction</td>
+                    <td>Rounding or Front-End Estimation</td>
+                </tr>
+                <tr>
+                    <td>Several measurements or scores close together</td>
+                    <td>Clustering</td>
+                </tr>
+                <tr>
+                    <td>Multiplication by numbers near <span class="math">10</span>, <span class="math">50</span>, or <span class="math">100</span></td>
+                    <td>Compatible Numbers</td>
+                </tr>
+                <tr>
+                    <td>Division by a number near <span class="math">1</span>, <span class="math">2</span>, <span class="math">5</span>, <span class="math">10</span>, or <span class="math">100</span></td>
+                    <td>Compatible Numbers</td>
+                </tr>
+                <tr>
+                    <td>Need for a quick mental answer</td>
+                    <td>Rounding or Compatible Numbers</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div class="box-info">
+            <b>4 Guiding Questions to Ask:</b>
+            <ol style="margin-bottom:0;">
+                <li>What operation is involved?</li>
+                <li>Which numbers are easy to use mentally?</li>
+                <li>How much will rounding change the result?</li>
+                <li>Is the estimate sensible in the given context?</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navigation">
+        <button id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <span class="slide-counter" id="slideCounter">Slide 1 of 8</span>
+        <button id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+
+        slideCounter.textContent = `Slide ${index + 1} of ${slides.length}`;
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === slides.length - 1;
+
+        if (window.MathJax && MathJax.typesetPromise) {
+            MathJax.typesetPromise([slides[index]]);
+        }
+    }
+
+    function changeSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide < 0) currentSlide = 0;
+        if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+        showSlide(currentSlide);
+    }
+
+    showSlide(currentSlide);
+</script>
+
+</body>
+</html>
